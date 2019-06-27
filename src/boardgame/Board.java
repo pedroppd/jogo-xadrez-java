@@ -28,7 +28,7 @@ public class Board {
 	}
 
 	public boolean therelsAPiece(Position position) {
-		if(!positionExists(position)) {
+		if (!positionExists(position)) {
 			throw new BoardException("Posição não encontrada: " + position);
 		}
 		return piece(position) != null;
@@ -54,6 +54,21 @@ public class Board {
 			throw new BoardException("Posição não encontrada");
 		}
 		return pieces[position.getRow()][position.getColumn()];
+	}
+
+	public Piece removePiece(Position position) {
+		if (!positionExists(position)) {
+			throw new BoardException("Posição inexistente!");
+		}
+
+		if (piece(position) == null) {
+			return null;
+		}
+
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
 	}
 
 	public Integer getRows() {
