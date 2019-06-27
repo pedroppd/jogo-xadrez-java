@@ -7,12 +7,15 @@ public class Position {
 	private Integer column;
 	
 	
-	public void setValues(Integer row, Integer column) {
-		
-	}
+	
 	
 	public Position() {
 		
+	}
+	
+	public void setValues(int row, int column) {
+		this.row = row;
+		this.column = column;
 	}
 	
 	public Position(Integer row, Integer column) {
